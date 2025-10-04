@@ -1,16 +1,9 @@
-// clients/geminiClient.js
-
 import { configDotenv } from "dotenv";
-// import API_URL from "../api.js";
-// import fetch from 'node-fetch'; 
+ 
 configDotenv();
 const API_KEY = process.env.GOOGLE_API_KEY;
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
 
-
-/**
- * A private, reusable function to call the Google Gemini API with retry logic.
- */
 async function _callGeminiApi(systemPrompt, userInput, jsonSchema) {
     if (!API_URL) {
         console.error("ERROR: GOOGLE_API_KEY not found. Please check your .env file.");
@@ -59,9 +52,7 @@ async function _callGeminiApi(systemPrompt, userInput, jsonSchema) {
     }
 }
 
-/**
- * Calls the AI to get a comprehensive summary of every factor.
- */
+
 export async function getRiskFactors(surveyData) {
     console.log("--- [AI Client] Preparing to get lifestyle summary... ---");
 
@@ -125,9 +116,7 @@ export async function getRiskClassification(riskFactors) {
 }
 
 
-/**
- * Takes a list of lifestyle summaries and generates detailed, encouraging recommendations.
- */
+
 export async function getRecommendations(riskFactors) {
     console.log("\n--- [AI Client] Preparing to get recommendations... ---");
 
@@ -163,6 +152,6 @@ export async function getRecommendations(riskFactors) {
     return {};
 }
 
-// export default { getRiskFactors, getRecommendations };
+
 
     
