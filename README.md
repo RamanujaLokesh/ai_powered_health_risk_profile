@@ -2,6 +2,21 @@ AI Health Profile Analyzer
 ===========================
 An intelligent backend service that analyzes health survey data to provide risk assessments and personalized, AI-generated recommendations. The service can process data from either an uploaded image of a survey form (using OCR) or a direct JSON payload.
 
+...
+
+---
+
+## 🚀 Live Demo
+
+This project is deployed on Google Cloud Run. You can access the live API endpoint here:
+
+**[https://health-risk-profiler-api-310335320038.asia-south1.run.app/](https://health-risk-profiler-api-310335320038.asia-south1.run.app/)**
+
+**Note:** The free-tier instance may take a few seconds to "wake up" on the first request if it has been idle.
+
+...
+
+
 Key Features
 --------------
 Dual Input: Accepts health data via image upload or JSON object.
@@ -99,9 +114,13 @@ The project is organized into distinct modules for routing, controllers, and uti
 │   └── ocr_processing/
 │       └── processor.js       # Handles image preprocessing, OCR, and text parsing
 ├── uploads/                     # Temporary storage for uploaded images (auto-generated)
+├── assets/
+│       └── input_sample_pic.jeg
 ├── .env.example               # Environment variable template
 ├── package.json
-└── server.js                  # Express server setup and application entry point
+├── server.js                  # Express server setup and application entry point
+└── README.md
+
 ```
 🚀 Getting Started
 =====================
@@ -142,17 +161,28 @@ The server will be running at http://localhost:3000.
 ===================
 The service exposes a single endpoint for all operations.
 
+
+You can test the API endpoints against the live deployed instance or a local server.
+
+* **Cloud URL (Live):** `https://your-project-url.com/`
+* **Local URL (Development):** `http://localhost:3000/`
+
+---
+
+
 Endpoint: POST /
 ----------------------
 Example 1: Analyze via Image Upload
 
 For this method, send a multipart/form-data request with an image file. The image should contain text in a key: value format.
+sample image:
+![sample_input](./assets/input_sample_pic.jpeg)
 
 cURL Command:
 
 Bash
 ```
-curl -X POST http://localhost:3000/ \
+curl -X POST https://health-risk-profiler-api-310335320038.asia-south1.run.app/ \
   -F "surveyImage=@/path/to/your/survey-image.png"
  ``` 
 Example 2: Analyze via JSON Payload
@@ -162,7 +192,7 @@ cURL Command:
 
 Bash
 ```
-curl -X POST http://localhost:3000/ \
+curl -X POST https://health-risk-profiler-api-310335320038.asia-south1.run.app/ \
   -H "Content-Type: application/json" \
   -d '{
         "age": 45,
