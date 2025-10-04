@@ -19,7 +19,7 @@ const PORT = process.env.PORT||3000; ;
 
 
 app.use(json());
-app.use('/api',profileRouter);
+app.use('/',profileRouter);
 app.use('*',(req,res)=>{
     res.status(404).json({error:'unknown url'});
 })

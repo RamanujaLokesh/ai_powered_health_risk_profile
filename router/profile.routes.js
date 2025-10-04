@@ -9,7 +9,7 @@ if (!existsSync(uploadDir)) {
     mkdirSync(uploadDir);
 }
 const upload = multer({ dest: uploadDir });
-router.post('/analyze', upload.single('surveyImage'),analyze)
+router.post('/', upload.single('surveyImage'),analyze)
 
 export default router;
 
