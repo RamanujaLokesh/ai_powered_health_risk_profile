@@ -165,7 +165,7 @@ The service exposes a single endpoint for all operations.
 You can test the API endpoints against the live deployed instance or a local server.
 
 * **Cloud URL (Live):** `https://health-risk-profiler-api-310335320038.asia-south1.run.app/`
-* **Local URL (Development):** `http://localhost:3000/`  (replace cloud URL with this in below cURL commands if running locally)
+* **Local URL (Development):** `http://localhost:3000/`  (use this URL if running locally)
 
 ---
 
@@ -185,12 +185,30 @@ Bash
 curl -X POST https://health-risk-profiler-api-310335320038.asia-south1.run.app/ \
   -F "surveyImage=@/path/to/your/survey-image.png"
  ``` 
+ or
+ ```
+ curl -X POST  http://localhost:3000/ \
+  -F "surveyImage=@/path/to/your/survey-image.png"
+ ```
 Example 2: Analyze via JSON Payload
 For this method, send an application/json request with the health data in the request body.
 
 cURL Command:
 
 Bash
+```
+curl -X POST http://localhost:3000/ \
+  -H "Content-Type: application/json" \
+  -d '{
+        "age": 45,
+        "smoker": "yes",
+        "exercise": "1-2 times a week",
+        "diet": "high in processed foods",
+        "alcohol": "3-4 drinks per week",
+        "sleep": "5 hours per night"
+      }'
+```
+or
 ```
 curl -X POST https://health-risk-profiler-api-310335320038.asia-south1.run.app/ \
   -H "Content-Type: application/json" \
