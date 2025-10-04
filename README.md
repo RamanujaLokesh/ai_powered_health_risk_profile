@@ -129,7 +129,7 @@ Follow these instructions to get a local copy of the project up and running.
 Prerequisites
 Node.js (v22.x or later)
 git initialization and cloing
--------------------------------
+--------
 bash
 ```
 git clone https://github.com/RamanujaLokesh/ai_powered_health_risk_profile.git
@@ -164,8 +164,8 @@ The service exposes a single endpoint for all operations.
 
 You can test the API endpoints against the live deployed instance or a local server.
 
-* **Cloud URL (Live):** `https://your-project-url.com/`
-* **Local URL (Development):** `http://localhost:3000/`
+* **Cloud URL (Live):** `https://health-risk-profiler-api-310335320038.asia-south1.run.app/`
+* **Local URL (Development):** `http://localhost:3000/`  (replace it with cloud URL in below cURL commands)
 
 ---
 
