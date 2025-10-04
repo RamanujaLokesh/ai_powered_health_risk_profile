@@ -165,7 +165,7 @@ The service exposes a single endpoint for all operations.
 You can test the API endpoints against the live deployed instance or a local server.
 
 * **Cloud URL (Live):** `https://health-risk-profiler-api-310335320038.asia-south1.run.app/`
-* **Local URL (Development):** `http://localhost:3000/`  (replace it with cloud URL in below cURL commands)
+* **Local URL (Development):** `http://localhost:3000/`  (replace cloud URL with this in below cURL commands if running locally)
 
 ---
 
